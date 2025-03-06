@@ -58,24 +58,43 @@ use variants::Variants;
 pub struct Entry {
     pub meta: EntryMetadata,
     pub hwi: HeadwordInformation,
+    #[serde(default)]
     pub hom: Option<Homograph>,
+    #[serde(default)]
     pub ahws: Option<AlternateHeadwords>,
+    #[serde(default)]
     pub vrs: Option<Variants>,
+    #[serde(default)]
     pub fl: Option<FunctionalLabel>,
+    #[serde(default)]
     pub lbs: Option<GeneralLabels>,
+    #[serde(default)]
     pub ins: Option<Inflections>,
+    #[serde(default)]
     pub cxs: Option<CognateCrossReferences>,
+    #[serde(default)]
     pub def: Option<DefinitionSections>,
+    #[serde(default)]
     pub uros: Option<UndefinedRunOns>,
+    #[serde(default)]
     pub dros: Option<DefinedRunOns>,
+    #[serde(default)]
     pub et: Option<Etymology>,
+    #[serde(default)]
     pub dxnls: Option<DirectionalCrossReferenceSection>,
+    #[serde(default)]
     pub usages: Option<UsageSection>,
+    #[serde(default)]
     pub syns: Option<SynonymSection>,
+    #[serde(default)]
     pub quotes: Option<QuotationSection>,
+    #[serde(default)]
     pub art: Option<Artwork>,
+    #[serde(default)]
     pub table: Option<Table>,
+    #[serde(default)]
     pub date: Option<FirstKnownUse>,
+    #[serde(default)]
     pub shortdef: Option<ShortDefinitions>,
     #[serde(default)]
     pub gram: Option<String>,
