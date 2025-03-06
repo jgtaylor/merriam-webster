@@ -15,6 +15,7 @@ pub struct EntryMetadata {
     pub stems: Vec<String>,
     /// true if there is a label containing "offensive" in the entry; otherwise, false.
     pub offensive: bool,
+    // Below is to support Learner's Dictionary
     /// if text is "yes", the headword is a key part of English vocabulary that is highlighted in print
     #[serde(default)]
     pub highlight: Option<String>,
