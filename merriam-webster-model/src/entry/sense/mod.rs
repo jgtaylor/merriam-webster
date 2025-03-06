@@ -47,6 +47,6 @@ pub struct SenseObject {
     sgram: Option<SenseSpecificGrammaticalLabel>,
     sls: Option<SubjectStatusLabels>,
     sn: Option<SenseNumber>,
-    vrs: Option<Variants>,
     snotebox: Option<BoxedSupplementalInfoNote>,
+    vrs: Option<Variants>,
 }
