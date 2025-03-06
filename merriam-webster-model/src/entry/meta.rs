@@ -15,4 +15,30 @@ pub struct EntryMetadata {
     pub stems: Vec<String>,
     /// true if there is a label containing "offensive" in the entry; otherwise, false.
     pub offensive: bool,
+    /// if text is "yes", the headword is a key part of English vocabulary that is highlighted in print
+    #[serde(default)]
+    pub highlight: Option<String>,
+    /// a very abbreviated version of the entry that could be used in specialized contexts where a preview or shortened entry view is needed;
+    #[serde(default, rename = "app-shortdef")]
+    pub app_shortdef: Option<AppShortDef>,
+    #[serde(default)]
+    pub syns: Option<Vec<String>>,
+    #[serde(default)]
+    pub ants: Option<Vec<String>>,
+    #[serde(default)]
+    pub targets: Option<Target>,
+
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AppShortDef {
+    hw: String,
+    fl: String,
+    def: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Target {
+    tuuid: String,
+    tsrc: String,
 }
