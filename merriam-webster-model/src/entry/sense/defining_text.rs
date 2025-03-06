@@ -1,7 +1,7 @@
 use crate::entry::{
     biographical_name_wrap::BiographicalNameWrap, called_also_note::CalledAlsoNote, run_in::RunIn,
     supplemental_information_note::SupplementalInformationNote, usage_notes::UsageNotes,
-    verbal_illustrations::VerbalIllustrations,
+    verbal_illustrations::VerbalIllustrations, usage_references::UsageReferences
 };
 
 pub type DefiningText = Vec<DefiningTextType>;
@@ -17,6 +17,7 @@ pub enum DefiningTextType {
     UsageNotes(UsageNotes),
     VerbalIllustrations(VerbalIllustrations),
     WithinSenseGram(WithinSenseGram),
+    UsageReferences(UsageReferences),
 }
 
 pub type DefiningTextObject = (DefiningTextObjectKey, String);

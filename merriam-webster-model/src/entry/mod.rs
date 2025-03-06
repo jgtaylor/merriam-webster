@@ -26,6 +26,7 @@ pub mod synonym_section;
 pub mod tables;
 pub mod undefined_run_ons;
 pub mod usage_notes;
+pub mod usage_references;
 pub mod usage_section;
 pub mod variants;
 pub mod verbal_illustrations;
