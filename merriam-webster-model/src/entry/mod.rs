@@ -33,7 +33,7 @@ pub mod verbal_illustrations;
 pub use sense::Sense;
 
 use alternate_headwords::AlternateHeadwords;
-use artwork::Artwork;
+use artwork::{Artwork, ArtworkLearners};
 use cognate_cross_references::CognateCrossReferences;
 use defined_run_ons::DefinedRunOns;
 use directional_cross_reference_section::DirectionalCrossReferenceSection;
@@ -78,4 +78,6 @@ pub struct Entry {
     pub shortdef: Option<ShortDefinitions>,
     #[serde(default)]
     pub gram: Option<String>,
+    #[serde(default)]
+    pub artl: Option<ArtworkLearners>,
 }
