@@ -17,7 +17,9 @@ pub struct InnerPhrasalVerb{
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "sphrasev")]
 pub struct SPhrasalVerb{
-    pub phrs: Vec<InnerPhrasalVerb>
+    pub phrs: Vec<InnerPhrasalVerb>,
+    #[serde(rename = "phsls")]
+    pub phrasal_verb_subject_label: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
