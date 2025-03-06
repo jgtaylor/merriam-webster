@@ -16,6 +16,7 @@ pub enum DefiningTextType {
     SupplementalInformationNote(SupplementalInformationNote),
     UsageNotes(UsageNotes),
     VerbalIllustrations(VerbalIllustrations),
+    WithinSenseGram(WithinSenseGram),
 }
 
 pub type DefiningTextObject = (DefiningTextObjectKey, String);
@@ -23,5 +24,14 @@ pub type DefiningTextObject = (DefiningTextObjectKey, String);
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum DefiningTextObjectKey {
     #[serde(rename = "text")]
+    Key,
+}
+
+
+pub type WithinSenseGram = (WithinSenseGramObjectKey, String);
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub enum WithinSenseGramObjectKey {
+    #[serde(rename = "wsgram")]
     Key,
 }

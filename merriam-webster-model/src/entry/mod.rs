@@ -4,6 +4,7 @@ pub mod alternate_headwords;
 pub mod artwork;
 pub mod attribution_of_quote;
 pub mod biographical_name_wrap;
+pub mod boxed_supplemental_info_note;
 pub mod called_also_note;
 pub mod cognate_cross_references;
 pub mod defined_run_ons;
@@ -74,4 +75,6 @@ pub struct Entry {
     pub table: Option<Table>,
     pub date: Option<FirstKnownUse>,
     pub shortdef: Option<ShortDefinitions>,
+    #[serde(default)]
+    pub gram: Option<String>,
 }

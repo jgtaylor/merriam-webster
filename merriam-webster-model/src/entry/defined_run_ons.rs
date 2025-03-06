@@ -30,6 +30,8 @@ pub struct DefinedRunOn {
     pub subject_status_labels: Option<SubjectStatusLabels>,
     #[serde(rename = "vrs")]
     pub variants: Option<Variants>,
+    #[serde(default)]
+    pub gram: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

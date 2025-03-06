@@ -1,4 +1,4 @@
-use super::{labels::SenseSpecificInflectionPluralLabel, pronunciations::Pronunciations};
+use super::{labels::SenseSpecificInflectionPluralLabel, pronunciations::{Pronunciations, AlternatePronounciation}};
 
 pub type Variants = Vec<Variant>;
 
@@ -12,4 +12,6 @@ pub struct Variant {
     pub pronunciation: Option<Pronunciations>,
     #[serde(rename = "spl")]
     pub spl: Option<SenseSpecificInflectionPluralLabel>,
+    #[serde(rename = "altprs", default)]
+    pub alternate_pronounciation: Option<AlternatePronounciation>,
 }

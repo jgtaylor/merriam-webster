@@ -1,4 +1,5 @@
 pub mod binding_substitute;
+pub mod bold_italic_note;
 pub mod defining_text;
 pub mod definition_section;
 pub mod divided_sense;
@@ -14,9 +15,10 @@ use super::{
     labels::{GeneralLabels, SenseSpecificGrammaticalLabel, SubjectStatusLabels},
     pronunciations::Pronunciations,
     variants::Variants,
+    boxed_supplemental_info_note::BoxedSupplementalInfoNote,
 };
 
-use self::{defining_text::DefiningText, divided_sense::DividedSense, sense_number::SenseNumber};
+use self::{defining_text::DefiningText, divided_sense::DividedSense, sense_number::SenseNumber, bold_italic_note::BoldItalicNote};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -35,6 +37,7 @@ pub enum SenseKey {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SenseObject {
+    bnote: Option<BoldItalicNote>,
     dt: DefiningText,
     et: Option<Etymology>,
     ins: Option<Inflections>,
@@ -45,4 +48,5 @@ pub struct SenseObject {
     sls: Option<SubjectStatusLabels>,
     sn: Option<SenseNumber>,
     vrs: Option<Variants>,
+    snotebox: Option<BoxedSupplementalInfoNote>,
 }

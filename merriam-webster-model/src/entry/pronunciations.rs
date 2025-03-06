@@ -5,6 +5,8 @@ pub type Pronunciations = Vec<Pronunciation>;
 pub struct Pronunciation {
     /// written pronunciation in Merriam-Webster format
     pub mw: Option<String>,
+    /// contains a pronunciation in International Phonetic Alphabet format
+    pub ipa: Option<String>,
     /// pronunciation label before pronunciation
     #[serde(rename = "l")]
     pub label_before: Option<String>,
@@ -21,6 +23,11 @@ pub struct Pronunciation {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct PronunciationSound {
     pub audio: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AlternatePronounciation {
+    pub pr: Pronunciation
 }
 
 impl PronunciationSound {

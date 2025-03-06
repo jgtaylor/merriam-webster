@@ -3,7 +3,7 @@ use super::{
     labels::{
         FunctionalLabel, GeneralLabels, ParenthesizedSubjectStatusLabel, SubjectStatusLabels,
     },
-    pronunciations::Pronunciations,
+    pronunciations::{Pronunciations, AlternatePronounciation},
     usage_notes::UsageNotes,
     variants::Variants,
     verbal_illustrations::VerbalIllustrations,
@@ -31,6 +31,10 @@ pub struct UndefinedRunOn {
     pub subject_status_labels: Option<SubjectStatusLabels>,
     #[serde(rename = "vrs")]
     pub variants: Option<Variants>,
+    #[serde(rename = "altprs", default)]
+    pub alternate_pronounciation: Option<AlternatePronounciation>,
+    #[serde(default)]
+    pub gram: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
