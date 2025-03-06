@@ -16,6 +16,7 @@ pub mod homograph;
 pub mod inflections;
 pub mod labels;
 pub mod meta;
+pub mod phrasal_verb;
 pub mod pronunciations;
 pub mod quotation_section;
 pub mod run_in;
