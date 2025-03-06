@@ -29,6 +29,8 @@ pub struct UndefinedRunOn {
     pub parenthesized_subect_status_label: Option<ParenthesizedSubjectStatusLabel>,
     #[serde(rename = "sls")]
     pub subject_status_labels: Option<SubjectStatusLabels>,
+    #[serde(rename = "rsl")]
+    pub run_on_subject_status_label: Option<String>,
     #[serde(rename = "vrs")]
     pub variants: Option<Variants>,
     #[serde(rename = "altprs", default)]

@@ -26,6 +26,8 @@ pub struct DefinedRunOn {
     pub pronunciations: Option<Pronunciations>,
     #[serde(rename = "psl")]
     pub parenthesized_subect_status_label: Option<ParenthesizedSubjectStatusLabel>,
+    #[serde(rename = "rsl")]
+    pub run_on_subject_status_label: Option<String>,
     #[serde(rename = "sls")]
     pub subject_status_labels: Option<SubjectStatusLabels>,
     #[serde(rename = "vrs")]
