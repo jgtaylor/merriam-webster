@@ -43,7 +43,7 @@ impl MerriamWebsterClient {
         let request = Request::builder()
             .method(Method::GET)
             .uri(format!(
-                "https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}?key={}",
+                "https://www.dictionaryapi.com/api/v3/references/learners/json/{word}?key={}",
                 self.key.expose_secret()
             ))
             .header(USER_AGENT, MERRIAM_WEBSTER_USER_AGENT)
