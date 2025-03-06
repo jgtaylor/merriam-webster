@@ -6,7 +6,7 @@ pub struct EntryMetadata {
     /// universally unique identifier
     pub uuid: String,
     /// a 9-digit code which may be used to sort entries in the proper dictionary order if alphabetical display is needed
-    pub sort: String,
+    pub sort: Option<String>,
     /// source data set for entry—ignore
     pub src: String,
     /// indicates the section the entry belongs to in print, where "alpha" indicates the main alphabetical section, "biog" biographical, "geog" geographical, and "fw&p" the foreign words & phrases section.
