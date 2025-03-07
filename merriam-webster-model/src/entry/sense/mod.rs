@@ -1,5 +1,6 @@
 pub mod binding_substitute;
 pub mod bold_italic_note;
+pub mod boxed_supplemental_info_notes;
 pub mod defining_text;
 pub mod definition_section;
 pub mod divided_sense;
@@ -10,16 +11,18 @@ pub mod truncated_sense;
 pub mod verb_divider;
 
 use super::{
-    boxed_supplemental_info_note::BoxedSupplementalInfoNote,
     etymology::Etymology,
     inflections::Inflections,
     labels::{GeneralLabels, SenseSpecificGrammaticalLabel, SubjectStatusLabels},
     phrasal_verb::PhrasalVerbs,
     pronunciations::Pronunciations,
-    variants::Variants
+    variants::Variants,
 };
 
-use self::{defining_text::DefiningText, divided_sense::DividedSense, sense_number::SenseNumber, bold_italic_note::BoldItalicNote};
+use self::{
+    bold_italic_note::BoldItalicNote, boxed_supplemental_info_notes::BoxedSupplementalInfoNotes,
+    defining_text::DefiningText, divided_sense::DividedSense, sense_number::SenseNumber,
+};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -49,7 +52,7 @@ pub struct SenseObject {
     sgram: Option<SenseSpecificGrammaticalLabel>,
     sls: Option<SubjectStatusLabels>,
     sn: Option<SenseNumber>,
-    snotebox: Option<BoxedSupplementalInfoNote>,
+    snotebox: Option<BoxedSupplementalInfoNotes>,
     sphrasev: Option<PhrasalVerbs>,
     vrs: Option<Variants>,
 }
