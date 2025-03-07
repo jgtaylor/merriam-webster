@@ -23,6 +23,7 @@ macro_rules! impl_word_test {
     };
 }
 
+impl_word_test!(test_word_at, "at");
 impl_word_test!(test_word_aesthetic, "aesthetic");
 impl_word_test!(test_word_ally, "ally");
 impl_word_test!(test_word_alpha, "alpha");
@@ -33,6 +34,7 @@ impl_word_test!(test_word_balls, "balls");
 impl_word_test!(test_word_banana, "banana");
 impl_word_test!(test_word_bolster, "bolster");
 impl_word_test!(test_word_cardi, "cardi");
+impl_word_test!(test_word_censure, "censure");
 impl_word_test!(test_word_chat, "chat");
 impl_word_test!(test_word_constitution, "constitution");
 impl_word_test!(test_word_creator, "creator");
@@ -49,6 +51,7 @@ impl_word_test!(test_word_follow, "follow");
 impl_word_test!(test_word_gaslighting, "gaslighting");
 impl_word_test!(test_word_grandmother, "grandmother");
 impl_word_test!(test_word_hoo, "hoo");
+impl_word_test!(test_word_homogeneity, "homogeneity");
 impl_word_test!(test_word_humble, "humble");
 impl_word_test!(test_word_joint, "joint");
 impl_word_test!(test_word_justice, "justice");
@@ -64,6 +67,7 @@ impl_word_test!(test_word_nuance, "nuance");
 impl_word_test!(test_word_pronoun, "pronoun");
 impl_word_test!(test_word_random, "random");
 impl_word_test!(test_word_rapper, "rapper");
+impl_word_test!(test_word_religion, "religion");
 impl_word_test!(test_word_resolution, "resolution");
 impl_word_test!(test_word_rizz, "rizz");
 impl_word_test!(test_word_silly, "silly");
