@@ -1,12 +1,7 @@
 use super::{
-    inflections::Inflections,
-    labels::{
+    inflections::Inflections, labels::{
         FunctionalLabel, GeneralLabels, ParenthesizedSubjectStatusLabel, SubjectStatusLabels,
-    },
-    pronunciations::{Pronunciations, AlternatePronounciation},
-    usage_notes::UsageNotes,
-    variants::Variants,
-    verbal_illustrations::VerbalIllustrations,
+    }, pronunciations::{AlternatePronounciation, Pronunciations}, sense::defining_text::WithinSenseGram, usage_notes::UsageNotes, variants::Variants, verbal_illustrations::VerbalIllustrations
 };
 
 pub type UndefinedRunOns = Vec<UndefinedRunOn>;
@@ -44,4 +39,5 @@ pub struct UndefinedRunOn {
 pub enum UndefinedRunOnText {
     VerbalIllustrations(VerbalIllustrations),
     UsageNotes(UsageNotes),
+    Wsgram(WithinSenseGram),
 }
