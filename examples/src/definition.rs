@@ -29,6 +29,7 @@ async fn main() -> anyhow::Result<()> {
             .collect::<Vec<String>>()
             .join("\n")
     );
+    println!("{:?}", &def);
 
     Ok(())
 }
