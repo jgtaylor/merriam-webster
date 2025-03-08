@@ -7,6 +7,7 @@ use hyper::{
     Body, Method, Request,
 };
 use merriam_webster_model::{entry::Entry, top_words::APIGetTopWordsJSONResponse};
+use percent_encoding::{utf8_percent_encode, NON_ALPHANUMERIC};
 use secrecy::{ExposeSecret, Secret};
 
 mod connector;
@@ -40,10 +41,11 @@ impl MerriamWebsterClient {
         &self,
         word: String,
     ) -> Result<Vec<Entry>, MerriamWebsterError> {
+        let url_encoded_word = utf8_percent_encode(&word, NON_ALPHANUMERIC).to_string();
         let request = Request::builder()
             .method(Method::GET)
             .uri(format!(
-                "https://www.dictionaryapi.com/api/v3/references/learners/json/{word}?key={}",
+                "https://www.dictionaryapi.com/api/v3/references/learners/json/{url_encoded_word}?key={}",
                 self.key.expose_secret()
             ))
             .header(USER_AGENT, MERRIAM_WEBSTER_USER_AGENT)
@@ -54,6 +56,7 @@ impl MerriamWebsterClient {
         let response = self.http.request(request).await?;
 
         let body_bytes = hyper::body::to_bytes(response).await?;
+        // println!("{:?}", &body_bytes);
         let body = serde_json::from_slice::<Vec<Entry>>(&body_bytes)?;
 
         Ok(body)
