@@ -13,7 +13,8 @@ async fn main() -> anyhow::Result<()> {
     let mut rng = thread_rng();
     let top_words = client.top_words().await?.data.words;
     let word = top_words.choose(&mut rng).unwrap();
-
+    println!("{word}");
+    // let word = "censure".to_string();
     let defs = client.collegiate_definition(word.to_string()).await?;
     let def = defs
         .first()
