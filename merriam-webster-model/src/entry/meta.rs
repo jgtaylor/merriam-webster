@@ -20,7 +20,7 @@ pub struct EntryMetadata {
     #[serde(default)]
     pub highlight: Option<String>,
     /// a very abbreviated version of the entry that could be used in specialized contexts where a preview or shortened entry view is needed;
-    #[serde(default, rename = "app-shortdef")]
+    #[serde(rename = "app-shortdef")]
     pub app_shortdef: Option<AppShortDef>,
     #[serde(default)]
     pub syns: Option<Vec<String>>,
@@ -28,18 +28,26 @@ pub struct EntryMetadata {
     pub ants: Option<Vec<String>>,
     #[serde(default)]
     pub targets: Option<Target>,
-
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct AppShortDef {
-    hw: String,
-    fl: String,
-    def: Vec<String>,
+#[serde(untagged)]
+pub enum AppShortDef {
+    AppShortDefFull(AppShortDefFull),
+    EmptyVec(EmptyVec),
 }
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AppShortDefFull {
+    pub hw: String,
+    pub fl: String,
+    pub def: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct EmptyVec {}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Target {
-    tuuid: String,
-    tsrc: String,
+    pub tuuid: String,
+    pub tsrc: String,
 }
