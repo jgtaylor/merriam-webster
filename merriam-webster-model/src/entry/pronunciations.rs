@@ -25,10 +25,7 @@ pub struct PronunciationSound {
     pub audio: String,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct AlternatePronounciation {
-    pub pr: Pronunciation
-}
+pub type AlternatePronounciation = Vec<Pronunciation>;
 
 impl PronunciationSound {
     /// Returns the URL of the sound file.
