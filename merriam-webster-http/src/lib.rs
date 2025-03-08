@@ -9,10 +9,17 @@ use hyper::{
 use merriam_webster_model::{entry::Entry, top_words::APIGetTopWordsJSONResponse};
 use percent_encoding::{utf8_percent_encode, NON_ALPHANUMERIC};
 use secrecy::{ExposeSecret, Secret};
+use serde::{Deserialize, Serialize};
 
 mod connector;
 pub mod error;
 
+#[derive(Debug, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DefinitionResponse {
+    Entries(Vec<Entry>),
+    PotentialWords(Vec<String>),
+}
 /// A client for the Merriam Webster API.
 pub struct MerriamWebsterClient {
     key: Secret<String>,
@@ -40,7 +47,7 @@ impl MerriamWebsterClient {
     pub async fn collegiate_definition(
         &self,
         word: String,
-    ) -> Result<Vec<Entry>, MerriamWebsterError> {
+    ) -> Result<DefinitionResponse, MerriamWebsterError> {
         let url_encoded_word = utf8_percent_encode(&word, NON_ALPHANUMERIC).to_string();
         let request = Request::builder()
             .method(Method::GET)
@@ -54,10 +61,9 @@ impl MerriamWebsterClient {
             .expect("request builder");
 
         let response = self.http.request(request).await?;
-
         let body_bytes = hyper::body::to_bytes(response).await?;
         // println!("{:?}", &body_bytes);
-        let body = serde_json::from_slice::<Vec<Entry>>(&body_bytes)?;
+        let body = serde_json::from_slice::<DefinitionResponse>(&body_bytes)?;
 
         Ok(body)
     }
