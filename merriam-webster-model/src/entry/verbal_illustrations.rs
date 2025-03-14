@@ -2,7 +2,7 @@ use super::attribution_of_quote::AttributionOfQuote;
 
 pub type VerbalIllustrations = (VerbalIllustrationsKey, VerbalIllustration);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum VerbalIllustrationsKey {
     #[serde(rename = "vis")]
     Key,

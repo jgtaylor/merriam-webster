@@ -5,7 +5,7 @@ pub type SupplementalInformationNote = (
     Vec<SupplementalInformationNoteType>,
 );
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum SupplementalInformationNoteKey {
     #[serde(rename = "snote")]
     Key,
@@ -21,7 +21,7 @@ pub enum SupplementalInformationNoteType {
 
 pub type TextSupplementalInformationNote = (TextSupplementalInformationNoteKey, String);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum TextSupplementalInformationNoteKey {
     #[serde(rename = "t")]
     Key,

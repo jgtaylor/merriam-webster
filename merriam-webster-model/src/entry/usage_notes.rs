@@ -2,7 +2,7 @@ use super::{run_in::RunIn, verbal_illustrations::VerbalIllustrations};
 
 pub type UsageNotes = (UsageNotesKey, Vec<UsageNote>);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum UsageNotesKey {
     #[serde(rename = "uns")]
     Key,
@@ -20,7 +20,7 @@ pub enum UsageNoteType {
 
 pub type TextUsageNote = (UsageNoteKey, String);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum UsageNoteKey {
     #[serde(rename = "text")]
     Key,

@@ -1,4 +1,7 @@
-use super::{labels::SenseSpecificInflectionPluralLabel, pronunciations::{Pronunciations, AlternatePronounciation}};
+use super::{
+    labels::SenseSpecificInflectionPluralLabel,
+    pronunciations::{AlternatePronounciation, Pronunciations},
+};
 
 pub type Inflections = Vec<Inflection>;
 
@@ -16,5 +19,4 @@ pub struct Inflection {
     pub sense_specific_inflection_plural_label: Option<SenseSpecificInflectionPluralLabel>,
     #[serde(rename = "altprs", default)]
     pub alternate_pronounciation: Option<AlternatePronounciation>,
-    
 }

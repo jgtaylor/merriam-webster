@@ -2,7 +2,7 @@ use super::{labels::ParenthesizedSubjectStatusLabel, pronunciations::Pronunciati
 
 pub type CalledAlsoNote = (CalledAlsoNoteKey, InnerCalledAlsoNote);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum CalledAlsoNoteKey {
     #[serde(rename = "ca")]
     Key,

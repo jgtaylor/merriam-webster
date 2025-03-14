@@ -1,6 +1,6 @@
 pub type RunIn = (RunInKey, Vec<RunInType>);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum RunInKey {
     #[serde(rename = "ri")]
     Key,
@@ -13,7 +13,7 @@ pub enum RunInType {
     InterveningText(RunInInterveningText),
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum RunInWrapKey {
     #[serde(rename = "riw")]
     Key,
@@ -21,7 +21,7 @@ pub enum RunInWrapKey {
 
 pub type RunInWrap = (RunInWrapKey, Vec<RunInEntryWord>);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum RunInInterveningTextKey {
     #[serde(rename = "text")]
     Key,

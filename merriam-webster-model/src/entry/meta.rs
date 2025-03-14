@@ -43,7 +43,7 @@ pub struct AppShortDefFull {
     pub def: Vec<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub struct EmptyVec {}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

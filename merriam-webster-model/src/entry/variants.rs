@@ -1,4 +1,7 @@
-use super::{labels::SenseSpecificInflectionPluralLabel, pronunciations::{Pronunciations, AlternatePronounciation}};
+use super::{
+    labels::SenseSpecificInflectionPluralLabel,
+    pronunciations::{AlternatePronounciation, Pronunciations},
+};
 
 pub type Variants = Vec<Variant>;
 

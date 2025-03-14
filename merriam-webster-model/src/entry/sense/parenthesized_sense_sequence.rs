@@ -14,7 +14,7 @@ pub enum InnerParenthesizedSenseSequence {
     BindingSubstitutes(Vec<BindingSubstitute>),
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum ParenthesizedSenseSequenceKey {
     #[serde(rename = "pseq")]
     Key,

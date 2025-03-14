@@ -21,7 +21,7 @@ pub enum SynonymTextType {
 
 pub type TextSynonymTextType = (TextSynonymTextTypeKey, String);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum TextSynonymTextTypeKey {
     #[serde(rename = "text")]
     Key,

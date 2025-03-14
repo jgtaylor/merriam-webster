@@ -1,7 +1,7 @@
 use crate::entry::{
     biographical_name_wrap::BiographicalNameWrap, called_also_note::CalledAlsoNote, run_in::RunIn,
     supplemental_information_note::SupplementalInformationNote, usage_notes::UsageNotes,
-    verbal_illustrations::VerbalIllustrations, usage_references::UsageReferences
+    usage_references::UsageReferences, verbal_illustrations::VerbalIllustrations,
 };
 
 pub type DefiningText = Vec<DefiningTextType>;
@@ -22,16 +22,15 @@ pub enum DefiningTextType {
 
 pub type DefiningTextObject = (DefiningTextObjectKey, String);
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub enum DefiningTextObjectKey {
     #[serde(rename = "text")]
     Key,
 }
 
-
 pub type WithinSenseGram = (WithinSenseGramObjectKey, String);
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub enum WithinSenseGramObjectKey {
     #[serde(rename = "wsgram")]
     Key,

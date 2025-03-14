@@ -21,7 +21,7 @@ pub enum UsageText {
 
 pub type TextUsageType = (TextUsageTypeKey, String);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum TextUsageTypeKey {
     #[serde(rename = "text")]
     Key,

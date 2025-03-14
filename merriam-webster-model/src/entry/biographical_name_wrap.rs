@@ -16,7 +16,7 @@
 ///
 /// [API Documentation ↗︎]: https://dictionaryapi.com/products/json#sec-2.bnw
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum BiographicalNameWrapKey {
     #[serde(rename = "bnw")]
     Key,

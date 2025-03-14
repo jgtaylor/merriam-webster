@@ -26,7 +26,7 @@ pub enum EtymologyType {
     SupplementalNote(EtymologySupplementalNote),
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum EtymologyContentKey {
     #[serde(rename = "text")]
     Key,
@@ -34,13 +34,13 @@ pub enum EtymologyContentKey {
 
 pub type EtymologyContent = (EtymologyContentKey, String);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum EtymologySupplementalNoteKey {
     #[serde(rename = "et_snote")]
     Key,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum InnerEtymologySupplementalNoteKey {
     #[serde(rename = "t")]
     Key,
