@@ -11,17 +11,17 @@ pub type TruncatedSense = (TruncatedSenseKey, TruncatedSenseObject);
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TruncatedSenseObject {
-    et: Option<Etymology>,
-    ins: Option<Inflections>,
-    lbs: Option<GeneralLabels>,
-    prs: Option<Pronunciations>,
-    sgram: Option<SenseSpecificGrammaticalLabel>,
-    sls: Option<SubjectStatusLabels>,
-    sn: Option<SenseNumber>,
-    vrs: Option<Variants>,
+    pub et: Option<Etymology>,
+    pub ins: Option<Inflections>,
+    pub lbs: Option<GeneralLabels>,
+    pub prs: Option<Pronunciations>,
+    pub sgram: Option<SenseSpecificGrammaticalLabel>,
+    pub sls: Option<SubjectStatusLabels>,
+    pub sn: Option<SenseNumber>,
+    pub vrs: Option<Variants>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum TruncatedSenseKey {
     #[serde(rename = "sen")]
     Key,
