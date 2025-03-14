@@ -33,7 +33,7 @@ pub enum Senses {
 
 pub type Sense = (SenseKey, SenseObject);
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum SenseKey {
     #[serde(rename = "sense")]
     Key,
@@ -41,18 +41,34 @@ pub enum SenseKey {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SenseObject {
-    bnote: Option<BoldItalicNote>,
-    dt: DefiningText,
-    et: Option<Etymology>,
-    ins: Option<Inflections>,
-    lbs: Option<GeneralLabels>,
-    phrasev: Option<PhrasalVerbs>,
-    prs: Option<Pronunciations>,
-    sdsense: Option<DividedSense>,
-    sgram: Option<SenseSpecificGrammaticalLabel>,
-    sls: Option<SubjectStatusLabels>,
-    sn: Option<SenseNumber>,
-    snotebox: Option<BoxedSupplementalInfoNotes>,
-    sphrasev: Option<PhrasalVerbs>,
-    vrs: Option<Variants>,
+    pub bnote: Option<BoldItalicNote>,
+    pub dt: DefiningText,
+    pub et: Option<Etymology>,
+    pub ins: Option<Inflections>,
+    pub lbs: Option<GeneralLabels>,
+    pub phrasev: Option<PhrasalVerbs>,
+    pub prs: Option<Pronunciations>,
+    pub sdsense: Option<DividedSense>,
+    pub sgram: Option<SenseSpecificGrammaticalLabel>,
+    pub sls: Option<SubjectStatusLabels>,
+    pub sn: Option<SenseNumber>,
+    pub snotebox: Option<BoxedSupplementalInfoNotes>,
+    pub sphrasev: Option<PhrasalVerbs>,
+    pub vrs: Option<Variants>,
+}
+
+impl Senses {
+    pub fn get_inner(&self) -> Vec<&SenseObject> {
+        let mut return_senses = vec![];
+        match self {
+            Self::Sense(s) => {
+                let (key, object) = &*s.as_ref();
+                return_senses.push(object);
+            }
+            _ => {
+                self.get_inner();
+            }
+        }
+        return_senses
+    }
 }
